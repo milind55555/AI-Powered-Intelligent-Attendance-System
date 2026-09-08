@@ -1,5 +1,13 @@
 import streamlit as st
+import base64
+import os
 
 def header_home():
-    st.title('Snap Class')
+    logo_url = "https://i.ibb.co/5htDPtdJ/logo.png"
 
+    st.markdown(f"""
+    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; margin-bottom:30px; margin-top:30px;">
+        <img src="{logo_url}" style="height:150px;"/>
+        <h1 style="text-align:center; color:#28282B;">INSTA MARK</h1>
+    </div>
+    """, unsafe_allow_html=True)

@@ -1,21 +1,19 @@
 import streamlit as st
+from src.screen.teacher_screen import  teacher_screen
+from src.screen.student_screen import  student_screen
+from  src.screen.home_screen import home_screen
 
 def main():
-    st.header("This is header")
-    name = st.text_input("Enter your name?",key="input1")
+    if "login_type" not in st.session_state:
+        st.session_state["login_type"] = None
 
-    col1,col2=st.columns(2,gap="small")
-    with col1:
-        if st.button("Hiiii",type="primary",key="btn1",width="stretch"):
-            print("Hiiii",name)
-    with col2:
-        if st.button("Byeee",type="primary",key="btn2",width="stretch"):
-            print("Byeee",name)        
-    st.markdown("""
-    <style>
-        button{
-                background: orange!important;}        
-    </style>
 
-    """,unsafe_allow_html=True)
+    if  st.session_state["login_type"] == "teacher":
+        teacher_screen()
+
+    elif  st.session_state["login_type"] =="student":
+        student_screen()
+
+    else :
+        home_screen()    
 main()   

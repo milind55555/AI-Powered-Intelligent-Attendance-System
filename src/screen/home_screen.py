@@ -1,26 +1,33 @@
 import streamlit as st
 
 from src.components.header_home import header_home
+from src.ui.base_layout import style_base_home,style_base_dashboard
 from src.ui.base_layout import style_base_layout
 
 def home_screen():
-	st.header("Home Screen")
+	
 
 	header_home()
-
 	style_base_layout()
+	style_base_home()
+	
+	
 
 
 
 	col1,col2=st.columns(2)
 
 	with col1:
-		if st.button("Teacher Portal",key="teacher_portal_btn"):
-			st.session_state["login_type"]="teacher"
+		st.header("I'm Student")
+		st.image("https://i.ibb.co/844D9Lrt/mascot-student.png", width=120)
+		if st.button("Student Portal", key="student_portal_btn",type="primary"):
+			st.session_state['login_type']='student'
 			st.rerun()
 	with col2:
-		if st.button("Student Portal",key="student_portal_btn"):
-			st.session_state["login_type"]="student"
+		st.header("I'm Teacher")
+		st. image("https://i.ibb.co/CsmQQV6X/mascot-prof.png", width=145)  
+		if st.button("Teacher Portal",key="teacher_portal_btn",type="primary"):
+			st.session_state["login_type"]="teacher"
 			st.rerun()
 
 
