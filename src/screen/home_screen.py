@@ -3,6 +3,7 @@ import streamlit as st
 from src.components.header_home import header_home
 from src.ui.base_layout import style_base_home,style_base_dashboard
 from src.ui.base_layout import style_base_layout
+from src.components.footer import footer_home
 
 def home_screen():
 	
@@ -25,10 +26,12 @@ def home_screen():
 			st.rerun()
 	with col2:
 		st.header("I'm Teacher")
-		st. image("https://i.ibb.co/CsmQQV6X/mascot-prof.png", width=145)  
+		st. image("https://i.ibb.co/CsmQQV6X/mascot-prof.png", width=120)  
 		if st.button("Teacher Portal",key="teacher_portal_btn",type="primary"):
 			st.session_state["login_type"]="teacher"
 			st.rerun()
+
+	footer_home()
 
 
 
